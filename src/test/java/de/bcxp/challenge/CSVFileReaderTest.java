@@ -1,11 +1,8 @@
 package de.bcxp.challenge;
 
 import org.junit.jupiter.api.Test;
-
 import de.bcxp.challenge.input.CSVFileReader;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

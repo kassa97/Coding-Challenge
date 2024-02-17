@@ -1,14 +1,11 @@
 package de.bcxp.challenge;
 
 import org.junit.jupiter.api.Test;
-
 import de.bcxp.challenge.data.DataProcessorCountries;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DataProcessorCountriesTest {
