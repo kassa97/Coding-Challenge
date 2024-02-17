@@ -16,7 +16,6 @@ public class DataProcessorWeather {
                 int minTemp = Integer.parseInt(data.get(i)[2]); 
                 spreads[i] = maxTemp - minTemp; 
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-                // Handle parsing errors or missing data
                 throw new RuntimeException("Wrong or missing Data in the weather.csv file at day " + i+1 + ": " + e.getMessage());
             }
         }
@@ -32,33 +31,33 @@ public class DataProcessorWeather {
         for (int i = 0; i < spreads.length; i++) {
             if (spreads[i] < minSpread) {
                 minSpread = spreads[i];
-                dayWithMinSpread = i + 1; // Day numbers start from 1
+                dayWithMinSpread = i + 1; 
             }
         }
 
         return dayWithMinSpread;
     }
 
+    // Method to read file and return the day with the smallest spread
     public static int DayWithSmallestSpread() {
     String filename = "src\\main\\resources\\de\\bcxp\\challenge\\weather.csv";
         
-        // Read data from the CSV file
+
         List<String[]> data = null;
         try {
             data = CSVFileReader.readWeatherData(filename);
         } catch (IOException e) {
             System.err.println("Error reading the CSV file: " + e.getMessage());
-            return -1; // Exit the program if an error occurs
+            return -1; 
         }
 
-        // Process the data
         if (data != null && !data.isEmpty()) {
             int[] spreads = DataProcessorWeather.calculateTemperatureSpread(data);
             int dayWithMinSpread = DataProcessorWeather.findDayWithSmallestSpread(spreads);
 
             return dayWithMinSpread;
         } else {
-            System.out.println("No data found in the CSV file."); // Handle empty file
+            System.out.println("No data found in the CSV file."); 
             return -1;
         }
     }

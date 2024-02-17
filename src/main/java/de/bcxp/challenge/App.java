@@ -15,14 +15,6 @@ public final class App {
      */
     public static void main(String[] args) {
 
-        // Your preparation code …
-
-        //Day Analysis function call
-        
-        // Population De
-        
-
-        
         int dayWithSmallestTempSpread = DataProcessorWeather.DayWithSmallestSpread();    // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread: %s%n", dayWithSmallestTempSpread);
 

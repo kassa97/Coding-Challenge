@@ -27,11 +27,9 @@ public class DataProcessorCountries {
         return highestDensityCountry;
     }
 
-    // Method to process country data and find the country with the highest
-    // population density
+    // Method to process country data and find the country with the highest population density
     public static Map<String, Double> calculateDensityMap(List<String[]> data) {
         Map<String, Double> densityMap = new HashMap<>();
-        // Calculate population density for each country
         for (int i = 0; i < data.size(); i++) {
             try {
                 String country = data.get(i)[0];
@@ -40,7 +38,7 @@ public class DataProcessorCountries {
                 double density = population / area;
                 densityMap.put(country, density);
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-                // Handle parsing errors or missing data
+                
                 throw new RuntimeException("Wrong or missing Data in the countries.csv file for " + data.get(i)[0]
                         + ": " + e.getMessage());
             }
@@ -48,30 +46,29 @@ public class DataProcessorCountries {
         return densityMap;
     }
 
-    // Method to process country data and find the country with the highest
-    // population density
+    // Method to read file and return the country with the highest density
     public static String CountryWithHighestDensity() {
         String filename = "src\\main\\resources\\de\\bcxp\\challenge\\countries.csv";
         List<String[]> data = null;
         try {
-            // Read data from the CSV file
+            
             data = CSVFileReader.readCountryData(filename);
 
         } catch (IOException e) {
             System.err.println("Error reading the CSV file: " + e.getMessage());
-            return ""; //Exit the program if an error occurs
+            return ""; 
         }
         
 
-        // Process the data
+        
         if (data != null && !data.isEmpty()) {
             Map<String, Double> densityMap = calculateDensityMap(data);
 
-            // Find the country with the highest population density
+          
             String highestDensityCountry = findCountryWithHighestDensity(densityMap);
             return highestDensityCountry;
         } else {
-            System.out.println("No data found in the CSV file."); // Handle empty file
+            System.out.println("No data found in the CSV file."); 
             return "";
         }
     }
