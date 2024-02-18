@@ -14,12 +14,12 @@ public class DataProcessorCountriesTest {
     void testCalculateDensityMap() {
         List<String[]> data = new ArrayList<>();
         data.add(new String[]{"Country1", "Capital1", "Year1", "10000", "500"});
-        data.add(new String[]{"Country2", "Capital2", "Year2", "20000", "1000"});
+        data.add(new String[]{"Country2", "Capital2", "Year2", "1", "1"});
 
         Map<String, Double> densityMap = DataProcessorCountries.calculateDensityMap(data);
 
         assertEquals(20.0, densityMap.get("Country1"));
-        assertEquals(20.0, densityMap.get("Country2"));
+        assertEquals(1.0, densityMap.get("Country2"));
     }
 
     @Test

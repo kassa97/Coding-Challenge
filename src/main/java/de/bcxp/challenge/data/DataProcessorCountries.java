@@ -1,11 +1,8 @@
 package de.bcxp.challenge.data;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import de.bcxp.challenge.input.CSVFileReader;
 
 public class DataProcessorCountries {
 
@@ -44,33 +41,6 @@ public class DataProcessorCountries {
             }
         }
         return densityMap;
-    }
-
-    // Method to read file and return the country with the highest density
-    public static String CountryWithHighestDensity() {
-        String filename = "src\\main\\resources\\de\\bcxp\\challenge\\countries.csv";
-        List<String[]> data = null;
-        try {
-            
-            data = CSVFileReader.readCountryData(filename);
-
-        } catch (IOException e) {
-            System.err.println("Error reading the CSV file: " + e.getMessage());
-            return ""; 
-        }
-        
-
-        
-        if (data != null && !data.isEmpty()) {
-            Map<String, Double> densityMap = calculateDensityMap(data);
-
-          
-            String highestDensityCountry = findCountryWithHighestDensity(densityMap);
-            return highestDensityCountry;
-        } else {
-            System.out.println("No data found in the CSV file."); 
-            return "";
-        }
     }
 
 }

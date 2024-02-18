@@ -1,7 +1,7 @@
 package de.bcxp.challenge;
 
-import de.bcxp.challenge.data.DataProcessorCountries;
-import de.bcxp.challenge.data.DataProcessorWeather;
+
+import de.bcxp.challenge.output.Output;
 
 /**
  * The entry class for your solution. This class is only aimed as starting point and not intended as baseline for your software
@@ -15,10 +15,10 @@ public final class App {
      */
     public static void main(String[] args) {
 
-        int dayWithSmallestTempSpread = DataProcessorWeather.DayWithSmallestSpread();    // Your day analysis function call …
+        int dayWithSmallestTempSpread = Output.DayWithSmallestSpread("src\\main\\resources\\de\\bcxp\\challenge\\weather.csv");    // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread: %s%n", dayWithSmallestTempSpread);
 
-        String countryWithHighestPopulationDensity = DataProcessorCountries.CountryWithHighestDensity();; // Your population density analysis function call …
+        String countryWithHighestPopulationDensity = Output.CountryWithHighestDensity("src\\main\\resources\\de\\bcxp\\challenge\\countries.csv"); // Your population density analysis function call …
         System.out.printf("Country with highest population density: %s%n", countryWithHighestPopulationDensity);
         
     }

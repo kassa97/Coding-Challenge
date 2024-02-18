@@ -1,9 +1,6 @@
 package de.bcxp.challenge.data;
 
-import java.io.IOException;
 import java.util.List;
-
-import de.bcxp.challenge.input.CSVFileReader;
 
 public class DataProcessorWeather {
     // Method to calculate the temperature spread for each day
@@ -38,28 +35,5 @@ public class DataProcessorWeather {
         return dayWithMinSpread;
     }
 
-    // Method to read file and return the day with the smallest spread
-    public static int DayWithSmallestSpread() {
-    String filename = "src\\main\\resources\\de\\bcxp\\challenge\\weather.csv";
-        
-
-        List<String[]> data = null;
-        try {
-            data = CSVFileReader.readWeatherData(filename);
-        } catch (IOException e) {
-            System.err.println("Error reading the CSV file: " + e.getMessage());
-            return -1; 
-        }
-
-        if (data != null && !data.isEmpty()) {
-            int[] spreads = DataProcessorWeather.calculateTemperatureSpread(data);
-            int dayWithMinSpread = DataProcessorWeather.findDayWithSmallestSpread(spreads);
-
-            return dayWithMinSpread;
-        } else {
-            System.out.println("No data found in the CSV file."); 
-            return -1;
-        }
-    }
 }
 
