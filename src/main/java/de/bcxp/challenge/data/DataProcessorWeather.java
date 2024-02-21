@@ -3,8 +3,10 @@ package de.bcxp.challenge.data;
 import java.util.List;
 
 public class DataProcessorWeather {
+    
     // Method to calculate the temperature spread for each day
     public static int[] calculateTemperatureSpread(List<String[]> data) {
+
         int[] spreads = new int[data.size()]; 
 
         for (int i = 0; i < data.size(); i++) {
@@ -22,6 +24,7 @@ public class DataProcessorWeather {
 
     // Method to determine the day with the smallest temperature spread
     public static int findDayWithSmallestSpread(int[] spreads) {
+
         int minSpread = Integer.MAX_VALUE; 
         int dayWithMinSpread = -1;
 

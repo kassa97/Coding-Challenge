@@ -8,6 +8,7 @@ public class DataProcessorCountries {
 
     // Method to find the country with the highest population density
     public static String findCountryWithHighestDensity(Map<String, Double> densityMap) {
+
         String highestDensityCountry = "";
         double maxDensity = 0.0;
 
@@ -26,7 +27,9 @@ public class DataProcessorCountries {
 
     // Method to process country data and find the country with the highest population density
     public static Map<String, Double> calculateDensityMap(List<String[]> data) {
+
         Map<String, Double> densityMap = new HashMap<>();
+
         for (int i = 0; i < data.size(); i++) {
             try {
                 String country = data.get(i)[0];
@@ -35,11 +38,11 @@ public class DataProcessorCountries {
                 double density = population / area;
                 densityMap.put(country, density);
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-                
                 throw new RuntimeException("Wrong or missing Data in the countries.csv file for " + data.get(i)[0]
                         + ": " + e.getMessage());
             }
         }
+        
         return densityMap;
     }
 
